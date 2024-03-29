@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Landing Page</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag 'application', "data-turbo-track": "reload" %>
+  <%= javascript_importmap_tags %>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet">
+
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Landing Page</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <%= link_to 'Home', root_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'About', about_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Contact', contact_path, class: 'nav-link' %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <% if flash[:notice] %>
+    <div class="alert alert-success" role="alert">
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+
+  <% if flash[:alert] %>
+    <div class="alert alert-danger" role="alert">
+      <%= flash[:alert] %>
+    </div>
+  <% end %>
+
+
+  <%= yield %>
+</body>
+<footer class="bg-light text-center text-lg-start">
+  <div class="container p-4">
+    <div class="row">
+      <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+        <h5 class="text-uppercase">Landing Page</h5>
+        <p>© Landing Page. All rights reserved.</p>
+      </div>
+      
+      <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+        <h5 class="text-uppercase">Follow us</h5>
+        <a href="javascript:void(0)" class="btn btn-outline-dark btn-floating m-1" role="button">
+          <i class="bi bi-facebook"></i>
+        </a>
+        <a href="javascript:void(0)" class="btn btn-outline-dark btn-floating m-1" role="button">
+          <i class="bi bi-twitter"></i>
+        </a>
+        <a href="javascript:void(0)" class="btn btn-outline-dark btn-floating m-1" role="button">
+          <i class="bi bi-instagram"></i>
+        </a>
+        <!-- Agrega o elimina redes sociales según sea necesario -->
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    Designed by <a class="text-dark" href="javascript:void(0)">Lucas Camino</a>
+  </div>
+</footer>
+</html>
+
